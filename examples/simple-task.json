@@ -1,0 +1,21 @@
+{
+  "title": "간단한 Hello World 프로그램",
+  "repo_path": ".",
+  "webhook_url": "https://httpbin.org/post",
+  "subtasks": [
+    {
+      "title": "Hello World 프로그램 생성",
+      "prompt": "Python으로 간단한 Hello World 프로그램을 만들어주세요. hello.py 파일에 작성하고, 실행해서 'Hello, World!'가 출력되는지 확인해주세요. 완료되면 '✅ Hello World created'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "✅ Hello World created",
+        "Hello, World!"
+      ],
+      "timeout": "5m",
+      "webhook_payload": {
+        "difficulty": "beginner",
+        "language": "python"
+      }
+    }
+  ]
+}

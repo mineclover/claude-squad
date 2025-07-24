@@ -1,0 +1,148 @@
+{
+  "id": "devops-deployment-pipeline",
+  "title": "DevOps 배포 파이프라인 구축",
+  "repo_path": ".",
+  "webhook_url": "https://api.company.com/webhooks/deployment",
+  "subtasks": [
+    {
+      "id": "setup-dockerfile",
+      "title": "Docker 설정",
+      "prompt": "애플리케이션을 위한 Dockerfile을 생성해주세요. Node.js 애플리케이션을 위한 multi-stage build를 사용해서 최적화된 이미지를 만들어주세요. .dockerignore 파일도 함께 생성해주세요. 완료되면 '🐳 Docker configured'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "🐳 Docker configured",
+        "Dockerfile created",
+        "Multi-stage build",
+        ".dockerignore created"
+      ],
+      "timeout": "15m",
+      "webhook_payload": {
+        "phase": "containerization",
+        "technology": "docker",
+        "priority": "high"
+      }
+    },
+    {
+      "id": "setup-github-actions",
+      "title": "GitHub Actions CI/CD",
+      "prompt": "GitHub Actions 워크플로우를 설정해주세요. 기능: 1) PR에서 테스트 실행, 2) main 브랜치 push 시 Docker 이미지 빌드 및 레지스트리 푸시, 3) 배포 환경에 자동 배포. .github/workflows/ci-cd.yml 파일을 생성해주세요. 완료되면 '⚙️ CI/CD pipeline ready'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "⚙️ CI/CD pipeline ready",
+        "GitHub Actions",
+        "Workflow created",
+        "Automated deployment"
+      ],
+      "timeout": "20m",
+      "webhook_payload": {
+        "phase": "automation",
+        "component": "ci-cd",
+        "priority": "critical"
+      }
+    },
+    {
+      "id": "setup-kubernetes",
+      "title": "Kubernetes 배포 설정",
+      "prompt": "Kubernetes 배포를 위한 YAML 파일들을 생성해주세요. Deployment, Service, Ingress, ConfigMap을 포함해주세요. 고가용성과 확장성을 고려한 설정으로 만들어주세요. 완료되면 '☸️ Kubernetes manifests ready'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "☸️ Kubernetes manifests ready",
+        "Deployment manifest",
+        "Service manifest",
+        "Ingress configured"
+      ],
+      "timeout": "25m",
+      "webhook_payload": {
+        "phase": "orchestration",
+        "technology": "kubernetes",
+        "priority": "high"
+      }
+    },
+    {
+      "id": "setup-monitoring",
+      "title": "모니터링 설정",
+      "prompt": "애플리케이션 모니터링을 위한 설정을 해주세요. Prometheus 메트릭 수집, Grafana 대시보드 설정, 로그 수집을 위한 설정을 포함해주세요. Health check 엔드포인트도 애플리케이션에 추가해주세요. 완료되면 '📊 Monitoring configured'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "📊 Monitoring configured",
+        "Prometheus metrics",
+        "Grafana dashboard",
+        "Health check endpoint"
+      ],
+      "timeout": "30m",
+      "webhook_payload": {
+        "phase": "monitoring",
+        "component": "observability"
+      }
+    },
+    {
+      "id": "setup-secrets",
+      "title": "시크릿 관리",
+      "prompt": "Kubernetes Secrets를 사용해서 민감한 정보를 관리하는 설정을 해주세요. 데이터베이스 비밀번호, API 키, JWT 시크릿 등을 안전하게 관리할 수 있도록 해주세요. 완료되면 '🔐 Secrets configured'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "🔐 Secrets configured",
+        "Kubernetes Secrets",
+        "Secret management",
+        "Secure configuration"
+      ],
+      "timeout": "15m",
+      "webhook_payload": {
+        "phase": "security",
+        "component": "secrets"
+      }
+    },
+    {
+      "id": "setup-backup",
+      "title": "백업 전략",
+      "prompt": "데이터베이스와 중요한 파일들의 백업 전략을 수립하고 구현해주세요. 자동화된 백업 스크립트, 백업 검증, 복구 절차를 포함해주세요. 완료되면 '💾 Backup strategy implemented'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "💾 Backup strategy implemented",
+        "Automated backup",
+        "Backup verification",
+        "Recovery procedures"
+      ],
+      "timeout": "20m",
+      "webhook_payload": {
+        "phase": "reliability",
+        "component": "backup"
+      }
+    },
+    {
+      "id": "load-testing",
+      "title": "부하 테스트",
+      "prompt": "k6 또는 Apache JMeter를 사용해서 부하 테스트를 수행해주세요. API 엔드포인트들의 성능을 측정하고 병목 지점을 식별해주세요. 테스트 결과를 분석하고 최적화 방안을 제시해주세요. 완료되면 '🚀 Load testing completed'을 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "🚀 Load testing completed",
+        "Performance measured",
+        "Bottlenecks identified",
+        "Optimization recommendations"
+      ],
+      "timeout": "25m",
+      "webhook_payload": {
+        "phase": "performance",
+        "component": "load-testing",
+        "priority": "medium"
+      }
+    },
+    {
+      "id": "deployment-documentation",
+      "title": "배포 문서화",
+      "prompt": "전체 배포 과정을 문서화해주세요. 인프라 아키텍처 다이어그램, 배포 절차, 롤백 방법, 트러블슈팅 가이드를 포함한 완전한 운영 문서를 만들어주세요. 완료되면 '📚 Deployment docs ready'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "📚 Deployment docs ready",
+        "Architecture diagram",
+        "Deployment procedures",
+        "Troubleshooting guide"
+      ],
+      "timeout": "20m",
+      "webhook_payload": {
+        "phase": "documentation",
+        "component": "operations"
+      }
+    }
+  ]
+}

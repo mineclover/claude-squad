@@ -62,6 +62,7 @@ Available Commands:
   help        Help about any command
   reset       Reset all stored instances
   version     Print the version number of claude-squad
+  wtask       Execute worktree-based automated tasks with webhook integration
 
 Flags:
   -y, --autoyes          [experimental] If enabled, all instances will automatically accept prompts for claude code & aider
@@ -75,6 +76,40 @@ Run the application with:
 cs
 ```
 NOTE: The default program is `claude` and we recommend using the latest version.
+
+### WTask - Automated Task Execution 🚀
+
+WTask is Claude Squad's powerful task automation system that executes multi-step workflows in isolated Git worktrees with webhook integration.
+
+#### Quick Start
+
+```bash
+# Execute a task with webhook notifications
+cs wtask examples/simple-task.json --webhook https://your-webhook.com
+
+# Use different AI agents
+cs wtask examples/gemini-task.json --program gemini
+
+# Multi-AI collaboration example
+cs wtask examples/multi-ai-task.json
+```
+
+#### Key Features
+
+- **🌳 Worktree Isolation**: Each task runs in its own Git worktree
+- **📋 Sequential Execution**: Subtasks execute in defined order  
+- **🔗 Webhook Integration**: Real-time progress notifications
+- **🤖 Multi-AI Support**: Claude, Gemini, Aider, Codex, and custom tools
+- **⏱️ Timeout Management**: Configurable timeouts per subtask
+- **🎯 Completion Detection**: Smart task completion detection
+- **🔄 Auto Cleanup**: Automatic worktree cleanup after completion
+
+#### Documentation
+
+- **[WTask User Guide](WTASK_DOCUMENTATION.md)** - Comprehensive usage guide
+- **[Task Schema Reference](TASK_SCHEMA.md)** - JSON schema specification  
+- **[Build & Install Guide](BUILD_AND_INSTALL_GUIDE.md)** - Development setup
+- **[Examples](examples/)** - Ready-to-use task examples
 
 <br />
 

@@ -157,6 +157,7 @@ func init() {
 	rootCmd.AddCommand(debugCmd)
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(resetCmd)
+	rootCmd.AddCommand(cmd2.GetWTaskCmd())
 }
 
 func main() {

@@ -1,0 +1,59 @@
+{
+  "id": "gemini-ai-comparison",
+  "title": "Google Gemini를 사용한 AI 모델 성능 비교",
+  "repo_path": ".",
+  "webhook_url": "https://httpbin.org/post",
+  "subtasks": [
+    {
+      "id": "research-task",
+      "title": "AI 모델 연구 및 분석",
+      "prompt": "현재 사용 가능한 대표적인 AI 언어 모델들(GPT-4, Claude, Gemini, LLaMA)을 비교 분석해주세요. 각 모델의 장단점, 사용 사례, 성능 특성을 자세히 분석하고 마크다운 보고서로 작성해주세요. 완료되면 'GEMINI: 연구 분석 완료'를 출력해주세요.",
+      "program": "gemini",
+      "completion_markers": [
+        "GEMINI: 연구 분석 완료",
+        "AI 모델 비교 완료",
+        "분석 보고서 작성됨"
+      ],
+      "timeout": "20m",
+      "webhook_payload": {
+        "ai_agent": "gemini",
+        "task_type": "research",
+        "complexity": "high"
+      }
+    },
+    {
+      "id": "algorithm-design",
+      "title": "복잡한 알고리즘 설계",
+      "prompt": "분산 시스템에서 대용량 데이터를 실시간으로 처리하기 위한 효율적인 알고리즘을 설계해주세요. Map-Reduce, 스트리밍 처리, 부하 분산을 고려한 아키텍처를 제안하고 Python으로 프로토타입을 구현해주세요. 완료되면 'GEMINI: 알고리즘 설계 완료'를 출력해주세요.",
+      "program": "gemini",
+      "completion_markers": [
+        "GEMINI: 알고리즘 설계 완료",
+        "분산 처리 알고리즘",
+        "프로토타입 구현 완료"
+      ],
+      "timeout": "30m",
+      "webhook_payload": {
+        "ai_agent": "gemini",
+        "task_type": "algorithm_design",
+        "complexity": "very_high"
+      }
+    },
+    {
+      "id": "data-analysis",
+      "title": "데이터 분석 및 시각화",
+      "prompt": "앞서 설계한 알고리즘의 성능을 측정하고 분석해주세요. 다양한 데이터 크기와 조건에서 벤치마크를 실행하고, Python 시각화 라이브러리(matplotlib, seaborn 등)를 사용해서 성능 그래프를 생성해주세요. 병목 지점과 최적화 방안도 제시해주세요. 완료되면 'GEMINI: 데이터 분석 완료'를 출력해주세요.",
+      "program": "gemini",
+      "completion_markers": [
+        "GEMINI: 데이터 분석 완료",
+        "성능 벤치마크 완료",
+        "시각화 그래프 생성"
+      ],
+      "timeout": "25m",
+      "webhook_payload": {
+        "ai_agent": "gemini",
+        "task_type": "data_analysis",
+        "visualization": true
+      }
+    }
+  ]
+}

@@ -3,6 +3,8 @@ package cmd
 import (
 	"os/exec"
 	"strings"
+
+	"github.com/spf13/cobra"
 )
 
 type Executor interface {
@@ -29,4 +31,9 @@ func ToString(cmd *exec.Cmd) string {
 		return "<nil>"
 	}
 	return strings.Join(cmd.Args, " ")
+}
+
+// GetWTaskCmd returns the wtask command for registration with main
+func GetWTaskCmd() *cobra.Command {
+	return wtaskCmd
 }

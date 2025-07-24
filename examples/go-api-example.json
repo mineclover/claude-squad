@@ -1,0 +1,65 @@
+{
+  "id": "go-api-development-example",
+  "title": "Go REST API 개발 예시",
+  "repo_path": ".",
+  "webhook_url": "https://httpbin.org/post",
+  
+  "subtasks": [
+    {
+      "id": "create-go-api",
+      "title": "Go REST API 엔드포인트 생성",
+      "prompt": "Go를 사용해서 간단한 REST API 서버를 만들어주세요. 요구사항: 1) GET /api/hello 엔드포인트, 2) JSON 응답 {'message': 'Hello, World!', 'timestamp': '현재시간'}, 3) 적절한 HTTP 상태 코드, 4) 에러 처리, 5) 포트 8080에서 실행. 완료되면 '✅ Go API server ready'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "✅ Go API server ready",
+        "Server listening on :8080",
+        "API endpoint created",
+        "JSON response"
+      ],
+      "timeout": "15m",
+      "webhook_payload": {
+        "priority": "high",
+        "component": "backend",
+        "language": "go",
+        "task_type": "api_development"
+      }
+    },
+    {
+      "id": "add-documentation",
+      "title": "API 문서화", 
+      "prompt": "생성된 Go API에 대한 완전한 문서를 작성해주세요. README.md 파일에 다음 내용을 포함해주세요: 1) 프로젝트 설명, 2) 설치 및 실행 방법, 3) API 엔드포인트 명세, 4) 요청/응답 예시, 5) 에러 코드 설명. 완료되면 '📚 Documentation completed'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "📚 Documentation completed",
+        "README.md created",
+        "API documentation",
+        "Usage examples"
+      ],
+      "timeout": "10m",
+      "webhook_payload": {
+        "priority": "medium",
+        "component": "documentation",
+        "task_type": "documentation"
+      }
+    },
+    {
+      "id": "write-tests",
+      "title": "단위 테스트 작성",
+      "prompt": "Go API를 위한 포괄적인 단위 테스트를 작성해주세요. Go의 testing 패키지와 httptest를 사용해서 다음을 테스트해주세요: 1) 정상적인 API 응답, 2) 잘못된 경로 처리, 3) HTTP 메서드 검증, 4) 응답 형식 검증. 테스트를 실행해서 모두 통과하는지 확인해주세요. 완료되면 '🧪 All tests passing'을 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "🧪 All tests passing",
+        "PASS",
+        "unit tests",
+        "test coverage"
+      ],
+      "timeout": "12m",
+      "webhook_payload": {
+        "priority": "high",
+        "component": "testing",
+        "task_type": "unit_testing",
+        "coverage_required": true
+      }
+    }
+  ]
+}

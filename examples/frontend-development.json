@@ -1,0 +1,146 @@
+{
+  "id": "react-frontend-development",
+  "title": "React 프론트엔드 개발",
+  "repo_path": ".",
+  "webhook_url": "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK",
+  "subtasks": [
+    {
+      "id": "setup-react-project",
+      "title": "React 프로젝트 초기화",
+      "prompt": "Create React App으로 TypeScript 프로젝트를 생성해주세요. 추가로 필요한 패키지들을 설치해주세요: @types/react, @types/react-dom, axios, react-router-dom, styled-components. 완료되면 '⚛️ React project ready'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "⚛️ React project ready",
+        "TypeScript configured",
+        "Dependencies installed"
+      ],
+      "timeout": "10m",
+      "webhook_payload": {
+        "technology": "react",
+        "language": "typescript",
+        "phase": "setup"
+      }
+    },
+    {
+      "id": "create-components",
+      "title": "기본 컴포넌트 생성",
+      "prompt": "다음 컴포넌트들을 생성해주세요: 1) Header 컴포넌트 (네비게이션), 2) Footer 컴포넌트, 3) Layout 컴포넌트 (Header와 Footer를 포함), 4) Button 컴포넌트 (재사용 가능). 모든 컴포넌트는 TypeScript로 작성하고 Props 인터페이스를 정의해주세요. 완료되면 '🧩 Components created'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "🧩 Components created",
+        "TypeScript interfaces",
+        "Reusable components"
+      ],
+      "timeout": "20m",
+      "webhook_payload": {
+        "phase": "development",
+        "component": "ui-components"
+      }
+    },
+    {
+      "id": "setup-routing",
+      "title": "라우팅 설정",
+      "prompt": "React Router를 사용해서 라우팅을 설정해주세요. 페이지들: Home (/), About (/about), Contact (/contact), NotFound (404). 각 페이지에 해당하는 컴포넌트도 만들어주세요. 네비게이션 링크도 Header에 추가해주세요. 완료되면 '🗺️ Routing configured'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "🗺️ Routing configured",
+        "React Router",
+        "Navigation links",
+        "Page components"
+      ],
+      "timeout": "15m",
+      "webhook_payload": {
+        "phase": "development",
+        "component": "routing"
+      }
+    },
+    {
+      "id": "create-forms",
+      "title": "폼 컴포넌트 생성",
+      "prompt": "Contact 페이지에 문의 폼을 만들어주세요. 필드: name (필수), email (필수, 이메일 형식), message (필수). 폼 유효성 검사, 에러 메시지 표시, 제출 처리를 구현해주세요. React Hook Form을 사용해서 구현해주세요. 완료되면 '📝 Contact form ready'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "📝 Contact form ready",
+        "Form validation",
+        "React Hook Form",
+        "Error handling"
+      ],
+      "timeout": "25m",
+      "webhook_payload": {
+        "phase": "development",
+        "component": "forms",
+        "priority": "medium"
+      }
+    },
+    {
+      "id": "add-api-integration",
+      "title": "API 연동",
+      "prompt": "JSONPlaceholder API (https://jsonplaceholder.typicode.com)를 사용해서 Posts 페이지를 만들어주세요. 게시글 목록 조회, 상세 보기, 로딩 상태, 에러 처리를 구현해주세요. axios를 사용하고 React hooks (useState, useEffect)로 상태 관리해주세요. 완료되면 '🔌 API integration done'을 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "🔌 API integration done",
+        "Posts loaded",
+        "Loading states",
+        "Error handling"
+      ],
+      "timeout": "20m",
+      "webhook_payload": {
+        "phase": "development",
+        "component": "api-integration"
+      }
+    },
+    {
+      "id": "add-styling",
+      "title": "스타일링 적용",
+      "prompt": "styled-components를 사용해서 앱을 스타일링해주세요. 반응형 디자인, 색상 테마, 일관된 typography를 적용해주세요. 모바일 친화적이고 현대적인 디자인으로 만들어주세요. 완료되면 '🎨 Styling completed'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "🎨 Styling completed",
+        "Responsive design",
+        "styled-components",
+        "Mobile friendly"
+      ],
+      "timeout": "30m",
+      "webhook_payload": {
+        "phase": "development",
+        "component": "styling",
+        "priority": "medium"
+      }
+    },
+    {
+      "id": "write-component-tests",
+      "title": "컴포넌트 테스트 작성",
+      "prompt": "React Testing Library를 사용해서 주요 컴포넌트들의 테스트를 작성해주세요. Button, Header, Contact Form 컴포넌트의 렌더링, 이벤트 처리, Props 전달을 테스트해주세요. 테스트 실행해서 모두 통과하는지 확인해주세요. 완료되면 '🧪 Component tests passing'을 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "🧪 Component tests passing",
+        "React Testing Library",
+        "All tests passed",
+        "Component testing"
+      ],
+      "timeout": "25m",
+      "webhook_payload": {
+        "phase": "testing",
+        "component": "unit-tests",
+        "priority": "high"
+      }
+    },
+    {
+      "id": "build-and-optimize",
+      "title": "빌드 최적화",
+      "prompt": "프로덕션 빌드를 생성하고 최적화해주세요. Code splitting, lazy loading, 이미지 최적화를 적용해주세요. Bundle analyzer로 번들 크기를 확인하고 최적화해주세요. 완료되면 '📦 Build optimized'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "📦 Build optimized",
+        "Production build",
+        "Code splitting",
+        "Bundle optimized"
+      ],
+      "timeout": "15m",
+      "webhook_payload": {
+        "phase": "optimization",
+        "component": "build"
+      }
+    }
+  ]
+}

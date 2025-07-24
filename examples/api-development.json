@@ -1,0 +1,129 @@
+{
+  "id": "rest-api-development",
+  "title": "REST API 개발 프로젝트",
+  "repo_path": ".",
+  "webhook_url": "https://api.example.com/webhooks/progress",
+  "subtasks": [
+    {
+      "id": "setup-project",
+      "title": "프로젝트 초기 설정",
+      "prompt": "Node.js Express 프로젝트를 초기화해주세요. package.json 생성, 필요한 dependencies 설치 (express, cors, dotenv, mongoose), 기본 서버 구조 설정을 해주세요. 완료되면 '🚀 Project initialized'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "🚀 Project initialized",
+        "package.json created",
+        "Server running"
+      ],
+      "timeout": "15m",
+      "webhook_payload": {
+        "phase": "setup",
+        "technology": "nodejs",
+        "priority": "high"
+      }
+    },
+    {
+      "id": "create-user-model",
+      "title": "사용자 모델 생성",
+      "prompt": "MongoDB Mongoose를 사용해서 User 모델을 만들어주세요. 필드: name(필수), email(필수, 유니크), password(필수), createdAt, updatedAt. 스키마 유효성 검사도 포함해주세요. 완료되면 '📋 User model created'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "📋 User model created",
+        "Schema validation",
+        "Mongoose model"
+      ],
+      "timeout": "10m",
+      "webhook_payload": {
+        "phase": "modeling",
+        "component": "user-model"
+      }
+    },
+    {
+      "id": "create-auth-routes",
+      "title": "인증 라우트 생성",
+      "prompt": "사용자 인증을 위한 라우트를 만들어주세요. POST /api/register (회원가입), POST /api/login (로그인), GET /api/profile (프로필 조회). JWT 토큰 기반 인증을 구현해주세요. 완료되면 '🔐 Auth routes ready'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "🔐 Auth routes ready",
+        "JWT authentication",
+        "Registration endpoint",
+        "Login endpoint"
+      ],
+      "timeout": "25m",
+      "webhook_payload": {
+        "phase": "development",
+        "component": "authentication",
+        "priority": "critical"
+      }
+    },
+    {
+      "id": "create-user-crud",
+      "title": "사용자 CRUD API",
+      "prompt": "사용자 관리를 위한 CRUD API를 만들어주세요. GET /api/users (목록), GET /api/users/:id (단일 조회), PUT /api/users/:id (수정), DELETE /api/users/:id (삭제). 인증된 사용자만 접근 가능하도록 미들웨어도 추가해주세요. 완료되면 '📚 CRUD API completed'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "📚 CRUD API completed",
+        "GET users endpoint",
+        "PUT users endpoint",
+        "DELETE users endpoint",
+        "Authentication middleware"
+      ],
+      "timeout": "20m",
+      "webhook_payload": {
+        "phase": "development",
+        "component": "crud-operations"
+      }
+    },
+    {
+      "id": "add-validation",
+      "title": "입력 유효성 검사 추가",
+      "prompt": "모든 API 엔드포인트에 입력 유효성 검사를 추가해주세요. express-validator를 사용해서 이메일 형식, 비밀번호 강도, 필수 필드 검사를 구현해주세요. 에러 응답도 표준화해주세요. 완료되면 '✅ Validation added'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "✅ Validation added",
+        "express-validator",
+        "Error handling",
+        "Input validation"
+      ],
+      "timeout": "15m",
+      "webhook_payload": {
+        "phase": "enhancement",
+        "component": "validation"
+      }
+    },
+    {
+      "id": "write-tests",
+      "title": "API 테스트 작성",
+      "prompt": "Jest와 Supertest를 사용해서 API 엔드포인트 테스트를 작성해주세요. 모든 라우트에 대해 성공 케이스와 실패 케이스를 테스트해주세요. 테스트 실행해서 모두 통과하는지 확인해주세요. 완료되면 '🧪 Tests passing'을 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "🧪 Tests passing",
+        "All tests passed",
+        "Jest tests",
+        "API testing"
+      ],
+      "timeout": "30m",
+      "webhook_payload": {
+        "phase": "testing",
+        "component": "unit-tests",
+        "priority": "high"
+      }
+    },
+    {
+      "id": "api-documentation",
+      "title": "API 문서화",
+      "prompt": "Swagger/OpenAPI를 사용해서 API 문서를 작성해주세요. 모든 엔드포인트, 요청/응답 스키마, 인증 방법을 문서화해주세요. README.md도 업데이트해서 프로젝트 설명과 실행 방법을 추가해주세요. 완료되면 '📖 Documentation ready'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "📖 Documentation ready",
+        "Swagger documentation",
+        "README updated",
+        "API documentation"
+      ],
+      "timeout": "20m",
+      "webhook_payload": {
+        "phase": "documentation",
+        "component": "api-docs"
+      }
+    }
+  ]
+}

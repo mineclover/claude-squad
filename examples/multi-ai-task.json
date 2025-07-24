@@ -1,0 +1,110 @@
+{
+  "id": "multi-ai-collaboration",
+  "title": "여러 AI 에이전트가 협업하는 프로젝트",
+  "repo_path": ".",
+  "webhook_url": "https://httpbin.org/post",
+  "subtasks": [
+    {
+      "id": "claude-planning",
+      "title": "프로젝트 계획 수립 (Claude)",
+      "prompt": "웹 애플리케이션 개발 프로젝트를 계획해주세요. 요구사항 분석, 기술 스택 선정, 개발 일정, 리스크 분석을 포함한 상세한 프로젝트 계획서를 작성해주세요. 완료되면 '✅ Claude: 프로젝트 계획 완료'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "✅ Claude: 프로젝트 계획 완료",
+        "프로젝트 계획서 작성",
+        "기술 스택 선정"
+      ],
+      "timeout": "15m",
+      "webhook_payload": {
+        "ai_agent": "claude",
+        "phase": "planning",
+        "responsibility": "project_management"
+      }
+    },
+    {
+      "id": "gemini-architecture",
+      "title": "시스템 아키텍처 설계 (Gemini)",
+      "prompt": "앞서 계획된 웹 애플리케이션의 상세한 시스템 아키텍처를 설계해주세요. 마이크로서비스 구조, 데이터베이스 설계, API 설계, 보안 고려사항을 포함해주세요. 아키텍처 다이어그램도 텍스트로 표현해주세요. 완료되면 'GEMINI: 아키텍처 설계 완료'를 출력해주세요.",
+      "program": "gemini",
+      "completion_markers": [
+        "GEMINI: 아키텍처 설계 완료",
+        "마이크로서비스 구조",
+        "아키텍처 다이어그램"
+      ],
+      "timeout": "25m",
+      "webhook_payload": {
+        "ai_agent": "gemini",
+        "phase": "architecture",
+        "responsibility": "system_design"
+      }
+    },
+    {
+      "id": "claude-backend",
+      "title": "백엔드 구현 (Claude)",
+      "prompt": "설계된 아키텍처를 바탕으로 Node.js Express 백엔드를 구현해주세요. RESTful API, 데이터베이스 연동, 인증/인가, 에러 처리를 포함해주세요. 완료되면 '✅ Claude: 백엔드 구현 완료'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "✅ Claude: 백엔드 구현 완료",
+        "RESTful API 구현",
+        "인증 시스템 완료"
+      ],
+      "timeout": "35m",
+      "webhook_payload": {
+        "ai_agent": "claude",
+        "phase": "development",
+        "responsibility": "backend_implementation"
+      }
+    },
+    {
+      "id": "aider-refactoring",
+      "title": "코드 리팩토링 및 최적화 (Aider)",
+      "prompt": "구현된 백엔드 코드를 검토하고 리팩토링해주세요. 코드 품질 개선, 성능 최적화, 테스트 추가를 수행해주세요. Git 커밋도 적절한 메시지와 함께 해주세요. 완료되면 'AIDER: 리팩토링 완료'를 출력해주세요.",
+      "program": "aider",
+      "completion_markers": [
+        "AIDER: 리팩토링 완료",
+        "코드 품질 개선",
+        "커밋 완료"
+      ],
+      "timeout": "20m",
+      "webhook_payload": {
+        "ai_agent": "aider",
+        "phase": "optimization",
+        "responsibility": "code_quality"
+      }
+    },
+    {
+      "id": "gemini-testing",
+      "title": "테스트 전략 및 구현 (Gemini)",
+      "prompt": "포괄적인 테스트 전략을 수립하고 구현해주세요. 단위 테스트, 통합 테스트, E2E 테스트를 포함하고, 테스트 자동화 파이프라인도 설계해주세요. 완료되면 'GEMINI: 테스트 구현 완료'를 출력해주세요.",
+      "program": "gemini",
+      "completion_markers": [
+        "GEMINI: 테스트 구현 완료",
+        "테스트 자동화",
+        "모든 테스트 통과"
+      ],
+      "timeout": "30m",
+      "webhook_payload": {
+        "ai_agent": "gemini",
+        "phase": "testing",
+        "responsibility": "quality_assurance"
+      }
+    },
+    {
+      "id": "claude-documentation",
+      "title": "최종 문서화 (Claude)",
+      "prompt": "전체 프로젝트의 완성된 문서를 작성해주세요. API 문서, 배포 가이드, 사용자 매뉴얼, 개발자 가이드를 포함한 완전한 문서 세트를 만들어주세요. 완료되면 '✅ Claude: 문서화 완료'를 출력해주세요.",
+      "program": "claude",
+      "completion_markers": [
+        "✅ Claude: 문서화 완료",
+        "API 문서 완성",
+        "사용자 매뉴얼 작성"
+      ],
+      "timeout": "20m",
+      "webhook_payload": {
+        "ai_agent": "claude",
+        "phase": "documentation",
+        "responsibility": "technical_writing"
+      }
+    }
+  ]
+}
